@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
-export default async function POST(req: Request) {
+export async function POST(req: Request) {
     const session = await getServerSession(authOption);
 
     if (!session || !session.user) {
@@ -15,47 +15,36 @@ export default async function POST(req: Request) {
         const {
         name,
         phoneNo,
-        role,
-        empId,
         userType,
         gender,
         email,
         password,
         DOB,
         qualification,
-        hireDate,
         address,
-        pincode,
-        leaves,
-        leaveType,
-        holidays,
+        pincode
         } = body;
 
+        console.log(body);
         if (
         !name ||
         !phoneNo ||
-        !role ||
-        !empId ||
         !userType ||
         !gender ||
         !email ||
         !password ||
         !DOB ||
         !qualification ||
-        !hireDate ||
         !address ||
-        !pincode ||
-        !leaves ||
-        !leaveType ||
-        !holidays
+        !pincode
         ) {
         return NextResponse.json(
             { error: "you are missing inputs field" },
             { status: 400 }
         );}
 
-        const userExists = await prisma.user.findUnique({ where: { email } });
-        if (!userExists){
+        const userExists = await prisma.user.findFirst({ where: { email } });
+        if (userExists){
             return NextResponse.json(
             { msg: "employee already exist" },
             { status: 400 }
@@ -64,22 +53,8 @@ export default async function POST(req: Request) {
             
         const create_user = await prisma.user.create({
             data: {
-            name,
-            phoneNo,
-            role,
-            empId,
-            userType,
-            gender,
-            email,
-            password,
-            DOB,
-            qualification,
-            hireDate,
-            address,
-            pincode,
-            leaves,
-            leaveType,
-            holidays,
+            ...body,
+            DOB:new Date(body.DOB)
             },
         });
         return NextResponse.json({
@@ -90,7 +65,3 @@ export default async function POST(req: Request) {
     }
 }
 
-
-export async function GET(req: Request) {
-
-}

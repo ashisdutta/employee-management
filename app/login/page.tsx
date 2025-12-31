@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { signIn, getSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function LoginPage() {
-  const router = useRouter;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handlesubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +24,15 @@ export default function LoginPage() {
       setError("Invalid email or password");
       return;
     }
+
+    const session = await getSession();
+
+    if (session?.user?.role === "ADMIN") {
+      router.push("/admin/dashboard");
+    } else {
+      router.push("/hr");
+    }
+    router.refresh();
   };
 
   return (
