@@ -11,10 +11,6 @@ export default function Dashboard() {
       <div>
         <Hero />
       </div>
-
-      {/* <div className="flex-1">
-                <CreateEmployeeForm />
-            </div> */}
     </div>
   );
 }
