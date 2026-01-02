@@ -55,6 +55,8 @@ export async function POST(req: Request) {
     const create_user = await prisma.user.create({
       data: {
         ...body,
+        phoneNo: parseInt(body.phoneNo, 10),
+        pincode: parseInt(body.pincode, 10),
         DOB: new Date(body.DOB),
       },
     });
