@@ -3,7 +3,6 @@ import prisma from "@/lib/prisma";
 
 export default async function EmployeeList() {
     const users = await prisma.user.findMany({});
-    console.log(users)
 
     return (
         <div className="divide-y divide-gray-200">
@@ -16,7 +15,6 @@ export default async function EmployeeList() {
                 </div>
                 <div>
                 <p className="text-sm font-semibold text-gray-900">{user.name}</p>
-                <p className="text-xs text-gray-500">{user.email?.split('@')[0] || "username"}</p>
                 </div>
             </div>
 

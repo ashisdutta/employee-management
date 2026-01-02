@@ -6,7 +6,7 @@ interface PageProps {
 
 export default async function EmployeeDetails({ params }: PageProps){
     const {id} = await params
-    console.log(id)
+
     return <div>
         <BasicInfo id={id}/>
     </div>
