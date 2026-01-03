@@ -2,15 +2,17 @@ interface buttonProps {
   text: string;
   disabled?: boolean;
   type: "submit" | "reset" | "button";
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export default function Button({ text, disabled, type }: buttonProps) {
+export default function Button({ text, disabled, type, onClick }: buttonProps) {
   return (
     <div>
       <div>
         <button
           type={type}
           disabled={disabled}
+          onClick={onClick}
           className={`w-full md:w-auto float-right font-bold py-3 px-10 rounded-xl transition-all shadow-lg 
             ${
               disabled

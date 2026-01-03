@@ -1,5 +1,3 @@
-import { int, number } from "zod";
-
 interface inputType {
   label: string;
   type: string;

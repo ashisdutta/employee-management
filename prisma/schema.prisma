@@ -28,11 +28,6 @@ enum status{
   approved
 }
 
-enum status{
-  pending
-  approved
-}
-
 model User{
   id String @id @default(uuid())
   role Role @default(Employee)
@@ -59,13 +54,8 @@ model Leave{
   startDate DateTime @db.Date
   endDate DateTime @db.Date
   status status @default(pending)
-<<<<<<< HEAD
-  userId String
-  createAt DateTime @default(now())
-=======
   createAt DateTime @default(now())
   userId String 
->>>>>>> c2f86b9 (adding holiday page)
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
