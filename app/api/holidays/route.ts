@@ -12,12 +12,12 @@ export default async function POST(req: NextRequest){
     }
 
     const userId = session.user.id;
-
+    
     try {
         const body = await req.json();
-        const {name, Date, description} = body;
+        const {name, date, description} = body;
 
-        if(!name || !Date || !description){
+        if(!name || !date || !description){
             return NextResponse.json(
                 { error: "you are missing inputs field" },
                 { status: 400 }
@@ -27,11 +27,18 @@ export default async function POST(req: NextRequest){
         const create_holiday = await prisma.holidays.create({
             data:{
                 name,
-                Date,
+                date: new Date(date),
                 description,
                 userId
             },
         })
+
+        return NextResponse.json({
+            msg: "Holiday created successfully",
+            data: create_holiday
+        }, { status: 201 });
+
+
     } catch (error) {
         return NextResponse.json({
             error: "Error while creating holiday" + error
