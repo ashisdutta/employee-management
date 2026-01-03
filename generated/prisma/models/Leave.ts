@@ -30,8 +30,8 @@ export type LeaveMinAggregateOutputType = {
   startDate: Date | null
   endDate: Date | null
   status: $Enums.status | null
-  userId: string | null
   createAt: Date | null
+  userId: string | null
 }
 
 export type LeaveMaxAggregateOutputType = {
@@ -40,8 +40,8 @@ export type LeaveMaxAggregateOutputType = {
   startDate: Date | null
   endDate: Date | null
   status: $Enums.status | null
-  userId: string | null
   createAt: Date | null
+  userId: string | null
 }
 
 export type LeaveCountAggregateOutputType = {
@@ -50,8 +50,8 @@ export type LeaveCountAggregateOutputType = {
   startDate: number
   endDate: number
   status: number
-  userId: number
   createAt: number
+  userId: number
   _all: number
 }
 
@@ -62,8 +62,8 @@ export type LeaveMinAggregateInputType = {
   startDate?: true
   endDate?: true
   status?: true
-  userId?: true
   createAt?: true
+  userId?: true
 }
 
 export type LeaveMaxAggregateInputType = {
@@ -72,8 +72,8 @@ export type LeaveMaxAggregateInputType = {
   startDate?: true
   endDate?: true
   status?: true
-  userId?: true
   createAt?: true
+  userId?: true
 }
 
 export type LeaveCountAggregateInputType = {
@@ -82,8 +82,8 @@ export type LeaveCountAggregateInputType = {
   startDate?: true
   endDate?: true
   status?: true
-  userId?: true
   createAt?: true
+  userId?: true
   _all?: true
 }
 
@@ -165,8 +165,8 @@ export type LeaveGroupByOutputType = {
   startDate: Date
   endDate: Date
   status: $Enums.status
-  userId: string
   createAt: Date
+  userId: string
   _count: LeaveCountAggregateOutputType | null
   _min: LeaveMinAggregateOutputType | null
   _max: LeaveMaxAggregateOutputType | null
@@ -196,8 +196,8 @@ export type LeaveWhereInput = {
   startDate?: Prisma.DateTimeFilter<"Leave"> | Date | string
   endDate?: Prisma.DateTimeFilter<"Leave"> | Date | string
   status?: Prisma.EnumstatusFilter<"Leave"> | $Enums.status
-  userId?: Prisma.StringFilter<"Leave"> | string
   createAt?: Prisma.DateTimeFilter<"Leave"> | Date | string
+  userId?: Prisma.StringFilter<"Leave"> | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
 
@@ -207,8 +207,8 @@ export type LeaveOrderByWithRelationInput = {
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
 }
 
@@ -221,8 +221,8 @@ export type LeaveWhereUniqueInput = Prisma.AtLeast<{
   startDate?: Prisma.DateTimeFilter<"Leave"> | Date | string
   endDate?: Prisma.DateTimeFilter<"Leave"> | Date | string
   status?: Prisma.EnumstatusFilter<"Leave"> | $Enums.status
-  userId?: Prisma.StringFilter<"Leave"> | string
   createAt?: Prisma.DateTimeFilter<"Leave"> | Date | string
+  userId?: Prisma.StringFilter<"Leave"> | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
 
@@ -232,8 +232,8 @@ export type LeaveOrderByWithAggregationInput = {
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
   _count?: Prisma.LeaveCountOrderByAggregateInput
   _max?: Prisma.LeaveMaxOrderByAggregateInput
   _min?: Prisma.LeaveMinOrderByAggregateInput
@@ -248,8 +248,8 @@ export type LeaveScalarWhereWithAggregatesInput = {
   startDate?: Prisma.DateTimeWithAggregatesFilter<"Leave"> | Date | string
   endDate?: Prisma.DateTimeWithAggregatesFilter<"Leave"> | Date | string
   status?: Prisma.EnumstatusWithAggregatesFilter<"Leave"> | $Enums.status
-  userId?: Prisma.StringWithAggregatesFilter<"Leave"> | string
   createAt?: Prisma.DateTimeWithAggregatesFilter<"Leave"> | Date | string
+  userId?: Prisma.StringWithAggregatesFilter<"Leave"> | string
 }
 
 export type LeaveCreateInput = {
@@ -268,8 +268,8 @@ export type LeaveUncheckedCreateInput = {
   startDate: Date | string
   endDate: Date | string
   status?: $Enums.status
-  userId: string
   createAt?: Date | string
+  userId: string
 }
 
 export type LeaveUpdateInput = {
@@ -288,8 +288,8 @@ export type LeaveUncheckedUpdateInput = {
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type LeaveCreateManyInput = {
@@ -298,8 +298,8 @@ export type LeaveCreateManyInput = {
   startDate: Date | string
   endDate: Date | string
   status?: $Enums.status
-  userId: string
   createAt?: Date | string
+  userId: string
 }
 
 export type LeaveUpdateManyMutationInput = {
@@ -317,8 +317,8 @@ export type LeaveUncheckedUpdateManyInput = {
   startDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   endDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumstatusFieldUpdateOperationsInput | $Enums.status
-  userId?: Prisma.StringFieldUpdateOperationsInput | string
   createAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
 }
 
 export type LeaveListRelationFilter = {
@@ -337,8 +337,8 @@ export type LeaveCountOrderByAggregateInput = {
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type LeaveMaxOrderByAggregateInput = {
@@ -347,8 +347,8 @@ export type LeaveMaxOrderByAggregateInput = {
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type LeaveMinOrderByAggregateInput = {
@@ -357,8 +357,8 @@ export type LeaveMinOrderByAggregateInput = {
   startDate?: Prisma.SortOrder
   endDate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  userId?: Prisma.SortOrder
   createAt?: Prisma.SortOrder
+  userId?: Prisma.SortOrder
 }
 
 export type LeaveCreateNestedManyWithoutUserInput = {
@@ -460,8 +460,8 @@ export type LeaveScalarWhereInput = {
   startDate?: Prisma.DateTimeFilter<"Leave"> | Date | string
   endDate?: Prisma.DateTimeFilter<"Leave"> | Date | string
   status?: Prisma.EnumstatusFilter<"Leave"> | $Enums.status
-  userId?: Prisma.StringFilter<"Leave"> | string
   createAt?: Prisma.DateTimeFilter<"Leave"> | Date | string
+  userId?: Prisma.StringFilter<"Leave"> | string
 }
 
 export type LeaveCreateManyUserInput = {
@@ -508,8 +508,8 @@ export type LeaveSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   startDate?: boolean
   endDate?: boolean
   status?: boolean
-  userId?: boolean
   createAt?: boolean
+  userId?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["leave"]>
 
@@ -519,8 +519,8 @@ export type LeaveSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   startDate?: boolean
   endDate?: boolean
   status?: boolean
-  userId?: boolean
   createAt?: boolean
+  userId?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["leave"]>
 
@@ -530,8 +530,8 @@ export type LeaveSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   startDate?: boolean
   endDate?: boolean
   status?: boolean
-  userId?: boolean
   createAt?: boolean
+  userId?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["leave"]>
 
@@ -541,11 +541,11 @@ export type LeaveSelectScalar = {
   startDate?: boolean
   endDate?: boolean
   status?: boolean
-  userId?: boolean
   createAt?: boolean
+  userId?: boolean
 }
 
-export type LeaveOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "reason" | "startDate" | "endDate" | "status" | "userId" | "createAt", ExtArgs["result"]["leave"]>
+export type LeaveOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "reason" | "startDate" | "endDate" | "status" | "createAt" | "userId", ExtArgs["result"]["leave"]>
 export type LeaveInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -567,8 +567,8 @@ export type $LeavePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     startDate: Date
     endDate: Date
     status: $Enums.status
-    userId: string
     createAt: Date
+    userId: string
   }, ExtArgs["result"]["leave"]>
   composites: {}
 }
@@ -998,8 +998,8 @@ export interface LeaveFieldRefs {
   readonly startDate: Prisma.FieldRef<"Leave", 'DateTime'>
   readonly endDate: Prisma.FieldRef<"Leave", 'DateTime'>
   readonly status: Prisma.FieldRef<"Leave", 'status'>
-  readonly userId: Prisma.FieldRef<"Leave", 'String'>
   readonly createAt: Prisma.FieldRef<"Leave", 'DateTime'>
+  readonly userId: Prisma.FieldRef<"Leave", 'String'>
 }
     
 

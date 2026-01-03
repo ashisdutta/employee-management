@@ -1,7 +1,7 @@
 import { int, number } from "zod";
 
 interface inputType {
-  label: string;
+  label?: string;
   type: string;
   placeholder: string;
   value: string | number;

@@ -99,8 +99,8 @@ export const LeaveScalarFieldEnum = {
   startDate: 'startDate',
   endDate: 'endDate',
   status: 'status',
-  userId: 'userId',
-  createAt: 'createAt'
+  createAt: 'createAt',
+  userId: 'userId'
 } as const
 
 export type LeaveScalarFieldEnum = (typeof LeaveScalarFieldEnum)[keyof typeof LeaveScalarFieldEnum]
