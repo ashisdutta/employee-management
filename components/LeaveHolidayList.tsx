@@ -1,13 +1,4 @@
-interface List {
-    id: string;
-    name: string;
-    date: Date;
-    description: string;
-}
-
-export interface LeaveHolidayListProps {
-    list: List[];
-}
+import { LeaveHolidayListProps } from "./SearchSection";
 
 export default function LeaveHolidayList({ list }: LeaveHolidayListProps) {
     return (
@@ -18,21 +9,23 @@ export default function LeaveHolidayList({ list }: LeaveHolidayListProps) {
                     className="grid grid-cols-4 px-6 py-4 items-center hover:bg-gray-50/80 transition-colors"
                 >
                     {/* 1. Name Column */}
-                    <div className="text-sm font-medium text-gray-900 lowercase">
+                    <div className="text-sm font-medium text-gray-900">
                         {obj.name}
                     </div>
 
                     {/* 2. Date Column */}
                     <div className="text-sm text-gray-600 font-mono italic">
-                        {obj.date instanceof Date 
+                        {"date" in obj 
                             ? obj.date.toISOString().split('T')[0] 
-                            : "2025-09-26"}
+                            : `${obj.defaultDays} days`}
                     </div>
 
                     {/* 3. Description Column */}
-                    <div className="text-sm text-gray-500 truncate pr-8">
+                    {"description" in obj && <div className="text-sm text-gray-500 truncate pr-8">
                         {obj.description}
                     </div>
+                    }
+                    
 
                     {/* 4. Actions Column */}
                     <div className="flex justify-center gap-2">
