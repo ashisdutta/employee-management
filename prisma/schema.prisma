@@ -28,7 +28,6 @@ enum status{
   approved
 }
 
-
 model User{
   id String @id @default(uuid())
   role Role @default(Employee)

@@ -4,46 +4,50 @@ import { getServerSession } from "next-auth";
 import { getServerComponentsHmrCache } from "next/dist/server/app-render/work-unit-async-storage.external";
 import { NextRequest, NextResponse } from "next/server";
 
-export default async function POST(req: NextRequest){
-    const session = await getServerSession(authOption);
+export async function POST(req: NextRequest) {
+  const session = await getServerSession(authOption);
 
-    if (!session || !session.user) {
-        return NextResponse.json({ error: "you are not login" }, { status: 401 });
+  if (!session || !session.user) {
+        return NextResponse.json({ error: "you are not logged in" }, { status: 401 });
+  }
+
+  const userId = session.user.id;
+
+  try {
+    const body = await req.json();
+    const { name, date, description } = body;
+
+    if (!name || !date || !description) {
+      return NextResponse.json(
+        { error: "you are missing inputs field" },
+        { status: 400 }
+      );
     }
 
-    const userId = session.user.id;
-    
-    try {
-        const body = await req.json();
-        const {name, date, description} = body;
+    const create_holiday = await prisma.holidays.create({
+      data: {
+        name,
+        date: new Date(date),
+        description,
+        userId,
+      },
+    });
 
-        if(!name || !date || !description){
-            return NextResponse.json(
-                { error: "you are missing inputs field" },
-                { status: 400 }
-            )
-        }
-
-        const create_holiday = await prisma.holidays.create({
-            data:{
-                name,
-                date: new Date(date),
-                description,
-                userId
-            },
-        })
-
-        return NextResponse.json({
-            msg: "Holiday created successfully",
-            data: create_holiday
-        }, { status: 201 });
-
-
-    } catch (error) {
-        return NextResponse.json({
-            error: "Error while creating holiday" + error
-        }, {
-            status:500
-        })
-    }
-    }
+    return NextResponse.json(
+      {
+        msg: "Holiday created successfully",
+        data: create_holiday,
+      },
+      { status: 201 }
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error: "Error while creating holiday" + error,
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+}
