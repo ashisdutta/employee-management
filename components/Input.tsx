@@ -1,5 +1,5 @@
 interface inputType {
-  label: string;
+  label?: string;
   type: string;
   placeholder: string;
   value: string | number;

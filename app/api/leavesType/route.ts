@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
-export default async function Post(req: NextRequest) {
+export default async function POST(req: NextRequest) {
     const session = await getServerSession(authOption);
 
     //needed?
@@ -22,7 +22,7 @@ export default async function Post(req: NextRequest) {
                 {status: 400})
         }
 
-        const create_leavesType = prisma.leaveType.create({
+        const create_leavesType = await prisma.leaveType.create({
             data: {
                 name, defaultDays, userId
             },
