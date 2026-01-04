@@ -3,7 +3,7 @@ import { useState } from "react";
 import CreateLeave from "./CreateLeave";
 import Button from "./Button";
 
-export default function () {
+export default function CreateLeaveBtn() {
   const [isOpen, setIsopen] = useState(false);
   return (
     <div>
