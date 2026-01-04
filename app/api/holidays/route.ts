@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
   const session = await getServerSession(authOption);
 
   if (!session || !session.user) {
-    return NextResponse.json({ error: "you are not login" }, { status: 401 });
+        return NextResponse.json({ error: "you are not logged in" }, { status: 401 });
   }
 
   const userId = session.user.id;
