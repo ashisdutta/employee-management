@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div>
       <CreateEmpBtn />
-      <div className="grid grid-cols-1 lg:grid-cols-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="lg:col-span-1">
           <LeaveReqList />
         </div>
@@ -14,5 +14,5 @@ export default function Hero() {
         </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,6 +1,7 @@
 import EmployeeList from "@/components/EmployeeList";
 
 export default function Employees() {
+  
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
       {/* Header Section */}

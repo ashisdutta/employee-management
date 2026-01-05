@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
-import React from "react";
+import LeaveStatus from "./LeaveStatusButton";
+
 
 export default async function LeaveReqList() {
   const leaves = await prisma.leave.findMany({
@@ -13,8 +14,8 @@ export default async function LeaveReqList() {
   return (
     <div className=" w-full max-w-3xl bg-white shadow-sm rounded-xl border border-gray-100 overflow-hidden">
       {/* Header Section */}
-      <div className="p-4 border-b border-gray-100 mt-7">
-        <h2 className="text-center text-emerald-800 font-semibold text-lg">
+      <div className="text-center text-emerald-800 font-semibold text-lg p-4 border-b border-gray-100 mt-7">
+        <h2>
           Leave Requests ({leaves.length})
         </h2>
       </div>
@@ -61,9 +62,9 @@ export default async function LeaveReqList() {
 
               {/* Right Side: Status Badge */}
               <div className="shrink-0">
-                <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-md text-xs font-semibold border border-gray-200">
-                  {leave.status}
-                </span>
+                <div className="bg-gray-100 text-gray-600 px-3 py-1 rounded-md text-xs font-semibold border border-gray-400 cursor-pointer  hover:bg-emerald-500 transition-colors">
+                  <LeaveStatus id={leave.id} status={leave.status}/>
+                </div>
               </div>
             </div>
           </div>

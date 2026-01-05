@@ -6,12 +6,13 @@ export default async function OnLeaveList() {
   const Onleaves = await prisma.leave.findMany({
     where: {
       startDate: {
-        gte: today,
+        lte: today,
       },
 
       endDate: {
-        lte: today,
+        gte: today,
       },
+      status:"approved"
     },
     include: {
       user: true,
@@ -37,7 +38,7 @@ export default async function OnLeaveList() {
         </h3>
 
         {Onleaves.map((onleave) => (
-          <div>
+          <div key={onleave.id}>
             {/* Single Employee Card */}
             <div className="flex items-center gap-3 border border-gray-200 rounded-lg p-3 bg-white">
               {/* Avatar (GK) */}

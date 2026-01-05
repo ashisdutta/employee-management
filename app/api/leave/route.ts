@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { authOption } from "@/auth";
 import prisma from "@/lib/prisma";
 import { error } from "console";
-export default async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const session = await getServerSession(authOption);
 
   if (!session || !session.user) {
@@ -14,11 +14,12 @@ export default async function POST(req: NextRequest) {
   }
 
   const userId = session.user.id;
+
   const body = await req.json();
-  const { reason, startDate, endDate, status } = body;
+  const { reason, startDate, endDate} = body;
 
   try {
-    if (!reason || !startDate || !endDate || !status) {
+    if (!reason || !startDate || !endDate) {
       return NextResponse.json(
         { error: "you are missing inputs field" },
         { status: 400 }
@@ -28,10 +29,9 @@ export default async function POST(req: NextRequest) {
     const new_leave = await prisma.leave.create({
       data: {
         reason,
-        startDate,
-        endDate,
-        status,
-        userId,
+        startDate:new Date(startDate),
+        endDate:new Date(endDate),
+        userId
       },
     });
 

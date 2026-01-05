@@ -10,5 +10,4 @@ export default async function EmployeeDetails({ params }: PageProps){
     return <div>
         <BasicInfo id={id}/>
     </div>
-  );
 }
